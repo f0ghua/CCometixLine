@@ -1,6 +1,6 @@
 use super::{Segment, SegmentData};
 use crate::config::{InputData, SegmentId};
-use chrono::{DateTime, Timelike, Utc};
+use chrono::{DateTime, Utc};
 use serde::{Deserialize, Serialize};
 use std::collections::HashMap;
 
@@ -285,21 +285,7 @@ impl Segment for BalanceSegment {
             "{} {}% · 💸 Used: ${:.2} · 💰 Left: ${:.0} · 📅 Expires: {}",
             status_dot, pct_display, used, remaining, expire_date
         );
-        // Rotating cute emoji based on current minute + second
-        let cute_emojis = [
-            "✨", "🌸", "🎀", "🌟", "💫", "🦋", "🌈", "🍀",
-            "💖", "🎐", "🌙", "⭐", "🎵", "🍬", "🧸", "🎪",
-            "🌺", "🎠", "💝", "🪄", "🫧", "🎯", "🔮", "🌷",
-            "😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾",
-            "👻", "💀", "☠️", "👾", "🤖", "🎃", "🤠", "😑",
-            "🤬", "😤", "😍", "🤣", "😳",
-            "🌈", "🌤️", "⛅", "🌥️", "☁️", "🌦️", "🌧️", "⛈️", "🌩️", "🌨️",
-            "🔞", "‼️", "⁉️",
-        ];
-        let idx = chrono::Local::now().second() as usize % cute_emojis.len();
-        let cute = cute_emojis[idx];
-
-        let secondary = format!("· {}", cute);
+        let secondary = String::new();
 
         let mut metadata = HashMap::new();
         metadata.insert("remaining".to_string(), format!("{:.2}", remaining));
