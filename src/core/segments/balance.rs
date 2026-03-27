@@ -279,10 +279,10 @@ impl Segment for BalanceSegment {
             "🔴"
         };
 
-        // Format: 🟡 51% · 💸 已用: $359.41 · 💰 剩余: $391 · 📅 到期: 04-06 · Synai996 AI
+        // Format: 🟡 51% · 💸 Used: $359.41 · 💰 Left: $391 · 📅 Expires: 04-06 · Synai996 AI
         let pct_display = remaining_pct.round() as u32;
         let primary = format!(
-            "{} {}% · 💸 已用: ${:.2} · 💰 剩余: ${:.0} · 📅 到期: {}",
+            "{} {}% · 💸 Used: ${:.2} · 💰 Left: ${:.0} · 📅 Expires: {}",
             status_dot, pct_display, used, remaining, expire_date
         );
         // Rotating cute emoji based on current minute + second
