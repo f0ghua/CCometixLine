@@ -279,7 +279,7 @@ impl Segment for BalanceSegment {
             "🔴"
         };
 
-        // Format: 🟡 51% · 💸 Used: $359.41 · 💰 Left: $391 · 📅 Expires: 04-06 · Synai996 AI
+        // Format: 🟡 51% · 💸 Used: $359.41 · 💰 Left: $391 · 📅 Expires: 04-06
         let pct_display = remaining_pct.round() as u32;
         let primary = format!(
             "{} {}% · 💸 Used: ${:.2} · 💰 Left: ${:.0} · 📅 Expires: {}",
@@ -299,7 +299,7 @@ impl Segment for BalanceSegment {
         let idx = chrono::Local::now().second() as usize % cute_emojis.len();
         let cute = cute_emojis[idx];
 
-        let secondary = format!("· Synai996 AI {}", cute);
+        let secondary = format!("· {}", cute);
 
         let mut metadata = HashMap::new();
         metadata.insert("remaining".to_string(), format!("{:.2}", remaining));
